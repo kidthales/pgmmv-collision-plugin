@@ -87,14 +87,14 @@
       parameter: [
         {
           id: 100,
-          name: 'Tile Group Variable Source',
+          name: 'Tile Group Variable Source:',
           type: 'SwitchVariableObjectId',
           option: ['SelfObject', 'ParentObject'],
           defaultValue: -1
         },
         {
           id: 0,
-          name: 'Tile Group',
+          name: 'Tile Group:',
           type: 'VariableId',
           referenceId: 100,
           withNewButton: true,
