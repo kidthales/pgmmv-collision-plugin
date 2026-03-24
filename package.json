@@ -1,0 +1,24 @@
+{
+  "name": "@kidthales/pgmmv-plugin-template",
+  "version": "0.1.0",
+  "description": "Plugin template for PGMMV.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "concurrently --group --names eslint,prettier \"eslint --cache .\" \"prettier --check \\\"**/*.{html,css,scss,md,json,yaml,yml}\\\"\"",
+    "lint-fix": "concurrently --group --names eslint,prettier \"eslint --cache --fix .\" \"prettier --write \\\"**/*.{html,css,scss,md,json,yaml,yml}\\\"\""
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.4",
+    "@types/node": "^24.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-es5": "^1.5.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "pgmmv-types": "https://github.com/kidthales/pgmmv-types/archive/refs/tags/v0.1.1.tar.gz",
+    "prettier": "^3.8.1"
+  }
+}
