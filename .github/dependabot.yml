@@ -3,7 +3,9 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: cron
+      cronjob: 0 8 * * SAT
+      timezone: Canada/Pacific
     versioning-strategy: increase-if-necessary
     groups:
       lint:
@@ -14,3 +16,10 @@ updates:
           - eslint-config-prettier
           - eslint-plugin-prettier
           - prettier
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: cron
+      cronjob: 0 8 * * SAT
+      timezone: Canada/Pacific
