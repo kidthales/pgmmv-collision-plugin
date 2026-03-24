@@ -106,14 +106,14 @@
     onSlopeFacingDownslopeLinkCondition = {
       id: 1,
       name: 'On Slope Facing Downslope [PGMMV Collision Plugin]',
-      description: 'Test if object instance is touching a slope and facing downslope.',
+      description: 'Test if object instance is touching a slope from the top and facing downslope.',
       parameter: []
     },
     /** @type {import("pgmmv-types/lib/agtk/plugins/plugin").AgtkLinkCondition} */
     onSlopeFacingUpslopeLinkCondition = {
       id: 2,
       name: 'On Slope Facing Upslope [PGMMV Collision Plugin]',
-      description: 'Test if object instance is touching a slope and facing upslope.',
+      description: 'Test if object instance is touching a slope from the top and facing upslope.',
       parameter: []
     },
     /**
