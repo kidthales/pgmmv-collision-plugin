@@ -30,12 +30,16 @@
           case 'actionCommand':
             return [];
           case 'linkCondition':
-            return [onTileWallOrSlopeLinkCondition];
+            return [
+              onTileWallOrSlopeLinkCondition,
+              onSlopeFacingDownslopeLinkCondition,
+              onSlopeFacingUpslopeLinkCondition
+            ];
           default:
             break;
         }
       },
-      initialize: function (data) {
+      initialize: function () {
         if (isEditor()) {
           return;
         }
@@ -44,9 +48,10 @@
           window.kt = {};
         }
 
-        // TODO
         window.kt.collision = {
-          onTileWallOrSlope: onTileWallOrSlope
+          onTileWallOrSlope: onTileWallOrSlope,
+          onSlopeFacingDownslope: onSlopeFacingDownslope,
+          onSlopeFacingUpslope: onSlopeFacingUpslope
         };
       },
       finalize: function () {},
@@ -62,6 +67,10 @@
         switch (linkCondition.id) {
           case onTileWallOrSlopeLinkCondition.id:
             return onTileWallOrSlope(np[linkCondition.parameter[0].id], np[linkCondition.parameter[1].id], instanceId);
+          case onSlopeFacingDownslopeLinkCondition.id:
+            return onSlopeFacingDownslope(instanceId);
+          case onSlopeFacingUpslopeLinkCondition.id:
+            return onSlopeFacingUpslope(instanceId);
           default:
             break;
         }
@@ -154,6 +163,48 @@
           directionType: Agtk.constants.linkCondition.slopeTouched.DirectionUpper,
           downwardType: Agtk.constants.linkCondition.slopeTouched.DownwardNone
         })
+      );
+    },
+    /**
+     * @param instanceId {number}
+     * @returns {boolean}
+     */
+    onSlopeFacingDownslope = function (instanceId) {
+      var objectInstance = Agtk.objectInstances.get(instanceId),
+        direction = objectInstance.variables.get(Agtk.constants.objects.variables.DisplayDirectionId).getValue();
+
+      return (
+        (direction === 270 &&
+          objectInstance.isSlopeTouched({
+            directionType: Agtk.constants.linkCondition.slopeTouched.DirectionUpper,
+            downwardType: Agtk.constants.linkCondition.slopeTouched.DownwardLeft
+          })) ||
+        (direction === 90 &&
+          objectInstance.isSlopeTouched({
+            directionType: Agtk.constants.linkCondition.slopeTouched.DirectionUpper,
+            downwardType: Agtk.constants.linkCondition.slopeTouched.DownwardRight
+          }))
+      );
+    },
+    /**
+     * @param instanceId {number}
+     * @returns {boolean}
+     */
+    onSlopeFacingUpslope = function (instanceId) {
+      var objectInstance = Agtk.objectInstances.get(instanceId),
+        direction = objectInstance.variables.get(Agtk.constants.objects.variables.DisplayDirectionId).getValue();
+
+      return (
+        (direction === 270 &&
+          objectInstance.isSlopeTouched({
+            directionType: Agtk.constants.linkCondition.slopeTouched.DirectionUpper,
+            downwardType: Agtk.constants.linkCondition.slopeTouched.DownwardRight
+          })) ||
+        (direction === 90 &&
+          objectInstance.isSlopeTouched({
+            directionType: Agtk.constants.linkCondition.slopeTouched.DirectionUpper,
+            downwardType: Agtk.constants.linkCondition.slopeTouched.DownwardLeft
+          }))
       );
     },
     /**
