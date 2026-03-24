@@ -1,0 +1,24 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  strip-comments-and-upload-to-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - run: npx @prasadrajandran/strip-comments-cli --keep-protected ./plugin.js | ./node_modules/.bin/prettier --stdin-filepath plugin.js | grep '.' > pgmmv-collision-plugin-${{ github.event.release.tag_name }}.js
+      - run: gh release upload ${{ github.event.release.tag_name }} pgmmv-collision-plugin-${{ github.event.release.tag_name }}.js --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
