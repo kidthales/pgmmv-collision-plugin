@@ -26,7 +26,7 @@
           case 'parameter':
             return [];
           case 'internal':
-            return {};
+            return null;
           case 'actionCommand':
             return [];
           case 'linkCondition':
