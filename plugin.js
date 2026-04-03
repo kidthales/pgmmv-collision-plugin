@@ -18,11 +18,14 @@
           case 'name':
             return 'PGMMV Collision Plugin';
           case 'description':
-            return 'Utilities for working with 2D collisions.';
+            return 'Utilities for working with object collisions.';
           case 'author':
             return 'Tristan Bonsor <kidthales@agogpixel.com>';
           case 'help':
-            return '';
+            return (
+              'This plugin provides utilities for working with 2D collisions. Currently limited\n' +
+              'to link conditions suitable for platformers.'
+            );
           case 'parameter':
             return [];
           case 'internal':
@@ -87,14 +90,14 @@
       parameter: [
         {
           id: 100,
-          name: 'Tile Group Variable Source:',
+          name: 'Tile Group Variable Source',
           type: 'SwitchVariableObjectId',
           option: ['SelfObject', 'ParentObject'],
           defaultValue: -1
         },
         {
           id: 0,
-          name: 'Tile Group:',
+          name: 'Tile Group',
           type: 'VariableId',
           referenceId: 100,
           withNewButton: true,
