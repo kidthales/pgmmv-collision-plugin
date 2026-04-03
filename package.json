@@ -1,7 +1,7 @@
 {
   "name": "@kidthales/pgmmv-collision-plugin",
   "version": "0.1.0",
-  "description": "Utilities for working with 2D collisions in PGMMV.",
+  "description": "Utilities for working with PGMMV object collisions.",
   "license": "MIT",
   "private": true,
   "scripts": {
