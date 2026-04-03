@@ -5,7 +5,7 @@
 
 Utilities for working with [PGMMV](https://rpgmakerofficial.com/product/act/en/manual/01_01.html) object collisions.
 
-> For usage instructions and downloads, please refer to the **[DOCUMENTATION](https://kidthales.com/pgmmv/storage-plugin/)**.
+> For usage instructions and downloads, please refer to the **[DOCUMENTATION](https://kidthales.com/pgmmv/collision-plugin/)**.
 
 ## Requirements
 
