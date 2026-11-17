@@ -10,7 +10,7 @@
     "lint-fix": "concurrently --group --names eslint,prettier \"eslint --cache --fix .\" \"prettier --write \\\"**/*.{html,css,scss,md,json,yaml,yml}\\\"\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "@kidthales/pgmmv-types": "^0.2.0",
     "concurrently": "^10.0.0",
     "eslint": "^9.39.3",
