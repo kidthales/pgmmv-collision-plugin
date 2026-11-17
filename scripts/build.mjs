@@ -92,6 +92,16 @@ async function main() {
     ? path.resolve(process.cwd(), outputArg)
     : path.join(rootDir, 'dist', `${baseName}-v${pkg.version}.js`);
 
+  const resolvedInput = path.resolve(inputPath);
+  const resolvedOutput = path.resolve(outputPath);
+  const isSamePath =
+    process.platform === 'win32'
+      ? resolvedOutput.toLowerCase() === resolvedInput.toLowerCase()
+      : resolvedOutput === resolvedInput;
+  if (isSamePath) {
+    throw new Error(`Refusing to overwrite input file: ${inputPath}`);
+  }
+
   const source = readFileSync(inputPath, 'utf8');
   const stripped = stripComments(source);
   const prettierConfig = await prettier.resolveConfig(inputPath);

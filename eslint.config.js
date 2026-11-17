@@ -3,7 +3,7 @@ const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommen
 
 module.exports = [
   {
-    ignores: ['dist/**', '.ci-local/**']
+    ignores: ['dist/**']
   },
   js.configs.recommended,
   eslintPluginPrettierRecommended,
