@@ -1,3 +1,15 @@
+# Agent configuration and learnings: never tracked
+.agents/
+.agent/
+.gemini/
+.ai/
+.cursor/
+.claude/
+AGENTS.md
+GEMINI.md
+CLAUDE.md
+docs/learnings/
+
 # Logs
 logs
 *.log
@@ -11,6 +23,12 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Local CI receipts and history
+.ci-local/
+
+# Temporary test probe directories
+**/.tmp-*
 
 # Editor directories and files
 .vscode/*
