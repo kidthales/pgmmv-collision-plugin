@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: monthly
+      interval: quarterly
       timezone: Canada/Pacific
     cooldown:
       default-days: 7
@@ -11,6 +11,10 @@ updates:
     commit-message:
       prefix: 'chore(deps)'
     versioning-strategy: increase-if-necessary
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-major
     groups:
       dependencies:
         patterns:
@@ -19,13 +23,17 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: monthly
+      interval: quarterly
       timezone: Canada/Pacific
     cooldown:
       default-days: 7
     open-pull-requests-limit: 3
     commit-message:
       prefix: 'chore(deps)'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-major
     groups:
       actions:
         patterns:
