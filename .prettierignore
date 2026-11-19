@@ -1,3 +1,4 @@
+.ci-local
 .vscode/settings.json
 dist
 package-lock.json

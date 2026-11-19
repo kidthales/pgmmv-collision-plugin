@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+    branches: [main, 'src-*/epic/**']
   workflow_dispatch:
 
 permissions:
@@ -15,7 +16,7 @@ concurrency:
 
 jobs:
   lint:
-    name: Lint, Typecheck & Build
+    name: Lint, Typecheck, Test & Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -37,6 +38,9 @@ jobs:
 
       - name: Run lint
         run: npm run lint
+
+      - name: Run tests
+        run: npm test
 
       - name: Run build
         run: npm run build

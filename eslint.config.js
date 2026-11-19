@@ -3,7 +3,7 @@ const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommen
 
 module.exports = [
   {
-    ignores: ['dist/**']
+    ignores: ['dist/**', '.ci-local/**', '**/.tmp-*/**']
   },
   js.configs.recommended,
   eslintPluginPrettierRecommended,
@@ -14,13 +14,10 @@ module.exports = [
     }
   },
   {
-    files: ['scripts/**/*.mjs'],
+    files: ['scripts/**/*.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        console: 'readonly'
-      }
+      sourceType: 'module'
     }
   },
   {
